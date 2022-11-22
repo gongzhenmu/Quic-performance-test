@@ -34,8 +34,19 @@ mininet-india:
 mininet-germany:
 	$(SCRIPTS)/mn-stratum --link=tc,bw=500,delay=10ms
 
+mininet-prereqs:
+	docker exec -it mn-stratum bash -c \
+		"apt-get update ; \
+		 apt-get -y --allow-unauthenticated install iptables python-scapy ; \
+		 apt-get install python3-pip"
+
+	$(SCRIPTS)/utils/mn-stratum/exec-script h1 \
+		"iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP"
+	$(SCRIPTS)/utils/mn-stratum/exec-script h2 \
+		"iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP"
+
 controller:
-	ONOS_APPS=gui,proxyarp,drivers.bmv2,lldpprovider,hostprovider \
+	ONOS_APPS=gui,proxyarp,drivers.bmv2,lldpprovider,hostprovider,fwd \
 	$(SCRIPTS)/onos
 
 cli:
