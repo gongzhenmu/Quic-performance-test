@@ -99,6 +99,7 @@ class quicconnect(MyClient):
             self.x.start()
     
     def send_frame(self,frame):
+        print("frame",frame)
         self.frame_hist.append(frame)
     
     def client_close(self):
@@ -170,13 +171,12 @@ def main():
     test_data = []
     for i in range(0,100):
         q = randbytes(n=50000)
-        test_data.append(q)
+        test_data.append("abc")
     # print(sys.getsizeof(test_data[0]))
-    k = quicconnectclient("127.0.0.1",4567,True)
+    k = quicconnectclient("127.0.0.1",4569,True)
       
     for i in test_data:   
         #print(i)
-
         k.quic_obj.send_frame(i)
         time.sleep(0.03)
 

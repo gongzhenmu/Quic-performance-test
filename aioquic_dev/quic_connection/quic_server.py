@@ -34,6 +34,7 @@ class MyConnection:
         
         if isinstance(event, StreamDataReceived):
             data = event.data
+            print("data received",data``)
             dd +=1
             if event.end_stream:
                 dd = 0
@@ -196,7 +197,7 @@ def main():
     print("frame,time,offset,recv time")
     
     data_queue = Queue()
-    j = quicconnectserver("127.0.0.1",4567,"./keys/RootCA.crt", "./keys/RootCA.key",True)
+    j = quicconnectserver("127.0.0.1",4569,"./keys/RootCA.crt", "./keys/RootCA.key",True)
     prc_thread = threading.Thread(target=processing,args=(j,data_queue))
     prc_thread.start()
     counter = 0
@@ -209,6 +210,7 @@ def main():
             temp["t1"] = time.time()
             temp["id"] = id
             print(id,",",t,",",o,",",r)
+            print("frame",f)
             #print("time",t)
             data_queue.put(temp)
             
