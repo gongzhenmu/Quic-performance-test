@@ -12,8 +12,6 @@ You must be in this directory or the dependencies will not work.
 Don't use ~ when setting directory.<br />
 ```export PATH="$PATH:${HOME}/depot_tools"```
 
-We end up not using the folder, but should do it anyways in case. <br />
-```mkdir ~/chromium && cd ~/chromium```<br />
 ```cd depot_tools``` <br />
 ```fetch --nohooks --no-history chromium```<br />
 
