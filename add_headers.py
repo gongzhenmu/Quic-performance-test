@@ -45,7 +45,7 @@ def construct_http_header(file_size, content_type, relative_filename):
 	header += '\r\nContent-Length: ' + str(file_size) + '\r\n'
 	header += 'Last-Modified: ' + LAST_MODIFIED + '\r\n'
 	header += 'X-Original-Url: https://' + BASE_URL + relative_filename + '\r\n\r\n'
-	header +=
+
 	return header
 
 def add_header_for_files_in_dir(directory, result_dir):
