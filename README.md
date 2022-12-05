@@ -10,7 +10,7 @@ You must be in this directory or the dependencies will not work.<br />
 ```git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git```<br />
 
 Don't use ~ when setting directory.<br />
-```export PATH="$PATH:${HOME}/depot_tools"```
+```export PATH="$PATH:${HOME}/CS536/depot_tools"```
 
 ```cd depot_tools``` <br />
 ```fetch --nohooks --no-history chromium```<br />
