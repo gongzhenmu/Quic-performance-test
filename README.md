@@ -5,9 +5,9 @@ a. Follow these instructions here for building dependencies in Linux: https://ch
 
 In short, we want to do most of the steps up until building chromium since we don't need to build it. These are the steps:
 
-You must be in this directory or the dependencies will not work.
-```cd CS536```
-```git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git```
+You must be in this directory or the dependencies will not work.<br />
+```cd CS536```<br />
+```git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git```<br />
 
 Don't use ~ when setting directory.<br />
 ```export PATH="$PATH:${HOME}/depot_tools"```
