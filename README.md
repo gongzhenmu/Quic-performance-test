@@ -18,6 +18,8 @@ Don't use ~ when setting directory.<br />
 Build dependencies: <br />
 ```cd src```<br />
 ```./build/install-build-deps.sh```<br />
+
+There may be some additional libraries you have to install alongside this (i.e. bzip2):
 ```gclient runhooks```<br />
 
 These directories will hold the builds: <br />
