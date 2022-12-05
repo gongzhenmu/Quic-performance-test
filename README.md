@@ -45,7 +45,7 @@ Remove these lines if they are in other headers of sites you test on:<br />
 ```"Transfer-Encoding: chunked"```<br />
 ```"Alternate-Protocol: ..."```<br />
 
-We need to generate certificates for the server and client TLS handshakes:
+Now, we need to generate certificates for the server and client TLS handshakes:<br />
 ```cd net/tools/quic/certs``` <br />
 ```./generate-certs.sh``` <br />
 ```cd -``` <br />
