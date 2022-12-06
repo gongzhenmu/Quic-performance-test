@@ -137,7 +137,7 @@ Go back to the folder where Makefile is located and run:<br />
 ```python3 changeHeaderWeb.py /workdir/quic-data/```<br />
 ```
 ./out/Debug/quic_server \
-  --quic_response_cache_dir=/workdir/quic-data/www.example.org \
+  --quic_response_cache_dir=/workdir/quic-data \
   --certificate_file=net/tools/quic/certs/out/leaf_cert.pem \
   --key_file=net/tools/quic/certs/out/leaf_cert.pkcs8
 ```
