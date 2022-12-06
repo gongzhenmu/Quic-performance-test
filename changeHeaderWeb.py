@@ -8,7 +8,7 @@ def changeHeaderWeb(folder):
         for file in os.listdir(folder):
             if file == "index.html":
                 folderName = folder.split("/")[-1]
-                xOriginal = "X-Original-Url: https://"+folderName+"/"+'\r\n\r\n'
+                xOriginal = "X-Original-Url: https://"+folderName+"/"
                 f = open(folder + "/" + file,encoding=encode)
                 try:
                     data= readlines()
@@ -20,6 +20,10 @@ def changeHeaderWeb(folder):
                 docTypeIndex = 0
                 header=""
                 for i in range(len(data)):
+                    if "content-type" in data[i].lower():
+                        header+=data[i]
+                        header+=xOriginal + "\r\n"
+                        continue
                     if "X-Original-Url" in data[i]:
                         continue
                     if "Transfer-Encoding: chunked" in data[i]:
@@ -30,8 +34,9 @@ def changeHeaderWeb(folder):
                         docTypeIndex = i
                         break
                     header+=data[i]
+                    
                 contents = "".join(data[docTypeIndex:])
-                header+=xOriginal
+
                 contents = header+contents
                 contents = contents.encode(encode)
 
