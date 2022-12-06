@@ -20,7 +20,7 @@ def changeHeaderWeb(folder):
                 docTypeIndex = 0
                 header=""
                 for i in range(len(data)):
-                    if "content-type" in data[i].lower():
+                    if "content-type:" in data[i].lower():
                         header+=data[i]
                         header+=xOriginal + "\r\n"
                         continue
