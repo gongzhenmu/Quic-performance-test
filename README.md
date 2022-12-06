@@ -108,3 +108,45 @@ or (inside CS536) <br />
 ```/workdir/depot_tools/src/out/Debug/quic_client --host=10.0.0.1 --port=6121 --allow_unknown_root_cert https://www.example.org/```
 
 
+## 4. Running QUIC tests
+a. Set permission for bash scripts:
+```
+chmod +x quicWebTestOne.sh 
+chmod +x quicVideoTestOne.sh 
+``` <br />
+
+Then create quic-data folder:
+```
+mkdir quic-data
+``` <br />
+
+Copy getWebsite.sh to quic-data:
+```
+cd quic-data
+./getWebsite.sh
+rm getWebsite.sh
+cd ..
+``` <br />
+
+For video tests, put mp4 files and add_headers.py under the same folder,then
+```python3 add_headers.py <video name list>``` <br />
+exmpale: python3 add_headers.py test3.mp4 test5.mp4 test66.mp4
+Move the with_folder to /quic-data/www.example.org
+In the with_folder, run 
+```mv with_headers/* .```<br />
+Go back to the folder where Makefile is located:
+```make host-h1```<br />
+```python3 changeHeaderWeb.py /workdir/quic-data/```<br />
+```./out/Debug/quic_server \
+  --quic_response_cache_dir=/workdir/quic-data \
+  --certificate_file=net/tools/quic/certs/out/leaf_cert.pem \
+  --key_file=net/tools/quic/certs/out/leaf_cert.pkcs8```<br />
+  
+ 
+In a second terminal:
+```make host-h2```<br />
+```python3 quicWebTest.py 1 ```<br />
+```python3 quicVideoTest.py 1 ```<br />
+
+
+
