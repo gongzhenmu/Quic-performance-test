@@ -38,7 +38,7 @@ mininet-prereqs:
 	docker exec -it mn-stratum bash -c \
 		"apt-get update ; \
 		 apt-get -y --allow-unauthenticated install iptables python-scapy ; \
-		 apt-get install libnss3 libc6 libgtk-3-0 libnss3-tools"
+		 apt-get install libnss3 libc6 libgtk-3-0 libnss3-tools wget python3"
 	
 controller:
 	ONOS_APPS=gui,proxyarp,drivers.bmv2,lldpprovider,hostprovider \
