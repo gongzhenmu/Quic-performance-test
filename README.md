@@ -109,41 +109,41 @@ or (inside CS536) <br />
 
 
 ## 4. Running QUIC tests
-a. Set permission for bash scripts:
-```
-chmod +x quicWebTestOne.sh 
-chmod +x quicVideoTestOne.sh 
-``` <br />
+Set permission for bash scripts:
 
-Then create quic-data folder:
-```
-mkdir quic-data
-``` <br />
+```chmod +x quicWebTestOne.sh ```<br />
+```chmod +x quicVideoTestOne.sh ```<br />
 
-Copy getWebsite.sh to quic-data:
-```
-cd quic-data
-./getWebsite.sh
-rm getWebsite.sh
-cd ..
-``` <br />
 
-For video tests, put mp4 files and add_headers.py under the same folder,then
+Then create quic-data folder:<br />
+```mkdir quic-data``` <br />
+
+Copy getWebsite.sh to quic-data:<br />
+```cd quic-data```<br />
+```./getWebsite.sh```<br />
+```rm getWebsite.sh```<br />
+```cd ..```<br />
+
+
+For video tests, put mp4 files and add_headers.py under the same folder, then <br />
 ```python3 add_headers.py <video name list>``` <br />
-exmpale: python3 add_headers.py test3.mp4 test5.mp4 test66.mp4
-Move the with_folder to /quic-data/www.example.org
-In the with_folder, run 
+`exmpale: python3 add_headers.py test3.mp4 test5.mp4 test66.mp4`
+
+Move the `with_folder `to /quic-data/www.example.org, run<br />
 ```mv with_headers/* .```<br />
-Go back to the folder where Makefile is located:
+Go back to the folder where Makefile is located and run:<br />
 ```make host-h1```<br />
+
 ```python3 changeHeaderWeb.py /workdir/quic-data/```<br />
-```./out/Debug/quic_server \
-  --quic_response_cache_dir=/workdir/quic-data \
+```
+./out/Debug/quic_server \
+  --quic_response_cache_dir=/workdir/quic-data/www.example.org \
   --certificate_file=net/tools/quic/certs/out/leaf_cert.pem \
-  --key_file=net/tools/quic/certs/out/leaf_cert.pkcs8```<br />
-  
- 
-In a second terminal:
+  --key_file=net/tools/quic/certs/out/leaf_cert.pkcs8
+```
+
+
+In a second terminal:<br />
 ```make host-h2```<br />
 ```python3 quicWebTest.py 1 ```<br />
 ```python3 quicVideoTest.py 1 ```<br />
