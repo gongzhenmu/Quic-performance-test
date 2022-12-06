@@ -148,5 +148,9 @@ In a second terminal:<br />
 ```python3 quicWebTest.py 1 ```<br />
 ```python3 quicVideoTest.py 1 ```<br />
 
+Once the test is finished, check **quicWebResult.log**  and  **quicVideoResult.log** for data <br />
+
+
+
 
 
