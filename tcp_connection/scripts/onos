@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ONOS_DOCKER_NAME=${ONOS_DOCKER_NAME:-onos}
-ONOS_IMG=${ONOS_IMG:-onosproject/onos:2.2.2}
+ONOS_IMG=${ONOS_IMG:-onosproject/onos}
 
 docker run -it --rm \
   --name $ONOS_DOCKER_NAME \

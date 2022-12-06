@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MAVEN_IMG=${MAVEN_IMG:-maven:3.6.3-jdk-11}
+MAVEN_IMG=${MAVEN_IMG:-maven}
 MAVEN_MOUNT_DIR=${MAVEN_MOUNT_DIR:-$PWD}
 
 docker run --rm \
