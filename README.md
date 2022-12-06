@@ -51,6 +51,9 @@ Now, we need to generate certificates for the server and client TLS handshakes:<
 ```cd -``` <br />
 
 ## 2. Set up mininet structure using the Makefile.
+You may need to give provide permissions to some files first. <br />
+```chmod -R +x scripts``` <br />
+
 In one terminal:  <br />
 ```make controller``` <br />
 
