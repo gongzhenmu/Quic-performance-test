@@ -89,15 +89,18 @@ Start the server inside "depot_tools/src" directory: <br />
 ```
 or inside the CS536 directory: <br />
 ```
-/workdir/depot_tools/src/out/Debug/quic_server   --quic_response_cache_dir=/workdir/quic-data/www.example.org   --certificate_file=net/tools/quic/certs/out/leaf_cert.pem   --key_file=net/tools/quic/certs/out/leaf_cert.pkcs8
+/workdir/depot_tools/src/out/Debug/quic_server \
+  --quic_response_cache_dir=/workdir/quic-data/www.example.org \
+  --certificate_file=net/tools/quic/certs/out/leaf_cert.pem \
+  --key_file=net/tools/quic/certs/out/leaf_cert.pkcs8
 ```
 
 b. In a second terminal, login to host 2:
 ```make host-h2``` <br />
 
 Start the client: <br />
-```./out/Debug/quic_client --host=10.0.0.1 --port=6121 --allow_unknown_root_cert https://www.example.org/```
-or (inside CS536)
+```./out/Debug/quic_client --host=10.0.0.1 --port=6121 --allow_unknown_root_cert https://www.example.org/``` <br />
+or (inside CS536) <br />
 ```/workdir/depot_tools/src/out/Debug/quic_client --host=10.0.0.1 --port=6121 --allow_unknown_root_cert https://www.example.org/```
 
 
