@@ -113,6 +113,7 @@ Set permission for bash scripts:
 
 ```chmod +x quicWebTestOne.sh ```<br />
 ```chmod +x quicVideoTestOne.sh ```<br />
+```chmod +x getWebsite.sh ```<br />
 
 
 Then create quic-data folder:<br />
