@@ -62,6 +62,7 @@ In a second terminal: <br />
 
 In a third terminal: <br />
 ```make cli``` <br />
+```app activate fwd``` <br />
 
 Enter "rocks" as the password.
 
