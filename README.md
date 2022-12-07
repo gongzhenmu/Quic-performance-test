@@ -146,8 +146,8 @@ Go back to the folder where Makefile is located and run:<br />
 
 In a second terminal:<br />
 ```make host-h2```<br />
-```python3 quicWebTest.py 1 ```<br />
-```python3 quicVideoTest.py 1 ```<br />
+```python3 quicWebTest.py 10 1 ```<br />
+```python3 quicVideoTest.py 5 1 ```<br />
 
 Once the test is finished, check **quicWebResult.log**  and  **quicVideoResult.log** for data <br />
 
