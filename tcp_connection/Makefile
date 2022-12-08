@@ -29,10 +29,10 @@ mininet:
 	$(SCRIPTS)/mn-stratum
 
 mininet-india:
-	$(SCRIPTS)/mn-stratum --link=tc,bw=10,delay=500ms
+	$(SCRIPTS)/mn-stratum --link=tc,bw=20,delay=250ms
 
 mininet-germany:
-	$(SCRIPTS)/mn-stratum --link=tc,bw=500,delay=10ms
+	$(SCRIPTS)/mn-stratum --link=tc,bw=100,delay=100ms
 
 mininet-prereqs:
 	docker exec -it mn-stratum bash -c \

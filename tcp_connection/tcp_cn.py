@@ -1,4 +1,4 @@
-from urllib.request import urlopen 
+from urllib.request import urlopen ,urlretrieve
 import json
 import time
 import datetime
@@ -7,7 +7,7 @@ import ssl
 
 def main(args):
 
-    targets = [
+    htmls = [
     'www.google.com',
     'www.facebook.com',
     'www.yahoo.com',
@@ -30,19 +30,36 @@ def main(args):
     'www.dropbox.com',
     'www.purdue.edu',]
 
-    urls =[ "http://" + args.addr+f"/data/{args.task[0]}/{target}/index.html" for target in targets]
-    print(urls)
+    videos = [
+        "test0.5.mp4",
+        "test3.mp4",
+        "test5.mp4",
+        "test11.mp4",
+        "test12.mp4",
+        "test20.mp4",
+        "test36.mp4",
+        "test66.mp4",
+    ]
     time_dict = {}
+    if args.task[0] == 'html':
+        targets = htmls
+    else:
+        targets = videos
     for target in targets:
         time_dict[target] = []
         for i in range(args.iteration):
             start_time = time.time()
-            url = "http://" + args.addr+f"/data/{args.task[0]}/{target}/index.html"
-            html = urlopen(url)
-            a= html.read()
+            if args.task[0] == "html":
+                url = "http://" + args.addr+f"/data/{args.task[0]}/{target}/index.html"
+                html = urlopen(url)     
+                h = html.read()
+            else:
+                url = "http://" + args.addr+f"/data/{args.task[0]}/{target}"
+                v = urlretrieve(url, f'{target}') 
+
             duration = time.time() - start_time
             time_dict[target].append(duration)
-            # print(f"{args.task} iterations:{i} {target} duration:{duration:.2f}")
+            print(f"{args.task} iterations:{i} {target} duration:{duration:.4f}")
     with open(args.path, 'w') as f:
         for target, durations in time_dict.items():
             f.write('$'+target)

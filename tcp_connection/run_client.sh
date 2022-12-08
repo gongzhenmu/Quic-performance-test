@@ -1,1 +1,0 @@
-python3  tcp_cn.py --addr 10.0.0.1:8888 --task html --iteration 100
