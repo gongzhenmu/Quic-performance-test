@@ -79,11 +79,6 @@ In short, follow these steps: <br />
 a. In one terminal, login to host 1:
 ```make host-h1``` <br />
 
-Then, we need to add a certificate. This should be run inside the "depot_tools/src" directory. "quic_cert" is the name we will be giving the certificate:  <br />
-```mkdir -p $HOME/.pki/nssdb```  <br />
-```certutil -d $HOME/.pki/nssdb -N```  <br />
-```certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n quic_cert -i net/tools/quic/certs/out/2048-sha256-root.pem``` <br />
-
 Start the server inside "depot_tools/src" directory: <br />
 ```
 ./out/Debug/quic_server \
@@ -101,6 +96,11 @@ or inside the CS536 directory: <br />
 
 b. In a second terminal, login to host 2:
 ```make host-h2``` <br />
+
+Then, we need to add a certificate. This should be run inside the "depot_tools/src" directory. "quic_cert" is the name we will be giving the certificate:  <br />
+```mkdir -p $HOME/.pki/nssdb```  <br />
+```certutil -d $HOME/.pki/nssdb -N```  <br />
+```certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n quic_cert -i net/tools/quic/certs/out/2048-sha256-root.pem``` <br />
 
 Start the client: <br />
 ```./out/Debug/quic_client --host=10.0.0.1 --port=6121 --allow_unknown_root_cert https://www.example.org/``` <br />
