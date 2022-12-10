@@ -38,7 +38,10 @@ mininet-prereqs:
 	docker exec -it mn-stratum bash -c \
 		"apt-get update ; \
 		 apt-get -y --allow-unauthenticated install iptables python-scapy ; \
-		 apt-get install libnss3 libc6 libgtk-3-0 libnss3-tools wget python3"
+		 apt-get install libnss3 libc6 libgtk-3-0 libnss3-tools wget python3 ; \
+		 wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 ;\
+		 cp mkcert-v1.4.3-linux-amd64 /usr/local/bin/mkcert ;\
+		 chmod +x /usr/local/bin/mkcert"
 	
 controller:
 	ONOS_APPS=gui,proxyarp,drivers.bmv2,lldpprovider,hostprovider \
@@ -55,4 +58,3 @@ host-h1:
 
 host-h2:
 	$(SCRIPTS)/utils/mn-stratum/exec h2
-
